@@ -1,0 +1,45 @@
+Baul-Sweet Sequence
+
+Description
+
+In mathematics, the Baum–Sweet sequence (https://en.wikipedia.org/wiki/Baum%E2%80%93Sweet_sequence) is an infinite automatic sequence of 0s and 1s defined by the rule:
+b_n = 1 if the binary representation of n contains no block of consecutive 0s of odd length;
+b_n = 0 otherwise;
+for n >= 0.
+For example, b_4 = 1 because the binary representation of 4 is 100, which only contains one block of consecutive 0s of length 2; whereas b_5 = 0 because the binary representation of 5 is 101, which contains a block of consecutive 0s of length 1. When n is 19611206, b_n is 0 because:
+19611206 = 100101011001111100100 0110 base 2
+            00 0 0  00     00 00 0  0 runs of 0s
+               ^ ^            ^^ ^    odd length sequences
+Because we find an odd length sequence of 0s, b_n is 0.
+Challenge Description
+
+Your challenge today is to write a program that generates the Baum-Sweet sequence from 0 to some number n. For example, given "20" your program would emit:
+1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0
+
+1 to 20
+Decimal	Binary		Value	Adjusted Binary	Has runs of odd lengths of 0s
+0		0000		1		0				No
+1		0001		1		1				No
+2		0010		0		10				Yes
+3		0011		1		11				No
+4		0100		1		100				No
+5		0101		0		101				Yes
+6		0110		0		110				Yes
+7		0111		1		111				No
+8		1000		0		1000			Yes
+9		1001		1		1001			No
+10		1010		0		1010			Yes
+11		1011		0		1011			Yes
+12		1100		1		1100			No
+13		1101		0		1101			Yes
+14		1110		0		1110			Yes
+15		1111		1		1111			No
+16		0001 0000	1		1 0000			No
+17		0001 0001	0		1 0001			Yes
+18		0001 0010	0		1 0010			Yes
+19		0001 0011	1		1 0011			No
+20		0001 0100	0		1 0100			Yes
+
+Observation
+Leading 0s are excluded from the binary value of a decimal number.
+Challenge starts at 0
