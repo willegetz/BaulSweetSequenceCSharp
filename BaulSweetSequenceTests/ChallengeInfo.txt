@@ -18,7 +18,7 @@ Your challenge today is to write a program that generates the Baum-Sweet sequenc
 
 1 to 20
 Decimal	Binary		Value	Adjusted Binary	Has runs of odd lengths of 0s
-0		0000		1		0				No
+0		0000		1		0				Yes
 1		0001		1		1				No
 2		0010		0		10				Yes
 3		0011		1		11				No
