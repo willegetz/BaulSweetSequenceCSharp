@@ -36,6 +36,7 @@ namespace BaumSweetSequenceTests
 
             var sequencesOf0 = binaryConversion.Split(new char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
             var hasOdd0Sequence = false;
+            var baumSweetEvaluation = 1;
 
             foreach (var seq in sequencesOf0)
             {
@@ -45,7 +46,14 @@ namespace BaumSweetSequenceTests
                 }
             }
 
-            Assert.IsTrue(hasOdd0Sequence, "The binary value does not contain any sequence of 0 with an odd count");
+            if (hasOdd0Sequence)
+            {
+                baumSweetEvaluation = 0;
+            }
+
+            var expected = 0;
+
+            Assert.AreEqual(expected, baumSweetEvaluation, "Evaluation contains no block of consecutive 0s of odd length");
         }
 
         [TestMethod]
@@ -53,6 +61,7 @@ namespace BaumSweetSequenceTests
         {
             var startingValue = 1;
             var binaryConversion = Convert.ToString(startingValue, 2);
+            var baumSweetEvaluation = 1;
 
             var sequencesOf0 = binaryConversion.Split(new char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
             var hasOdd0Sequence = false;
@@ -65,7 +74,14 @@ namespace BaumSweetSequenceTests
                 }
             }
 
-            Assert.IsFalse(hasOdd0Sequence, "The binary value does contain a sequence of 0 with an odd count");
+            if (hasOdd0Sequence)
+            {
+                baumSweetEvaluation = 0;
+            }
+
+            var expected = 1;
+
+            Assert.AreEqual(expected, baumSweetEvaluation, "Evaluation contains 1 or more blocks of consecutive 0s of odd length");
         }
     }
 }
