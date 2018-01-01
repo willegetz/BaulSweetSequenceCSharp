@@ -62,19 +62,12 @@ namespace BaumSweetSequenceTests
         [TestMethod]
         public void BaumSweetSequenceFor2Is1and1and0()
         {
-            var baumSweetSequence = new List<int>();
+            var baumSweetSequence = new List<int>() { 1 };
 
             var numberToEvaluate = 2;
 
-            for (int i = 0; i <= numberToEvaluate; i++)
+            for (int i = 1; i <= numberToEvaluate; i++)
             {
-                if (i == 0)
-                {
-                    baumSweetSequence.Add(1);
-                    continue;
-                }
-
-
                 var binaryConversion = GetBinaryValue(i);
                 var sequenceOf0s = GetBlocksOf0s(binaryConversion);
                 var sequenceEvaluation = GetBaumSweetEvaluation(sequenceOf0s);
