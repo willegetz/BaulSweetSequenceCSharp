@@ -1,10 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using ApprovalTests.Reporters;
+using ApprovalTests;
 
 namespace BaumSweetSequenceTests
 {
     [TestClass]
+    [UseReporter(typeof(BeyondCompare4Reporter))]
     public class SequenceTests
     {
         // Convert number to binary :: Binary output is a string
@@ -82,6 +85,45 @@ namespace BaumSweetSequenceTests
             var expected = 1;
 
             Assert.AreEqual(expected, baumSweetEvaluation, "Evaluation contains 1 or more blocks of consecutive 0s of odd length");
+        }
+
+        [TestMethod]
+        public void BaumSweetSequenceFor2Is1and1and0()
+        {
+            var numberToEvaluate = 2;
+            var baumSweetSequence = new List<int>();
+
+            for (int i = 0; i <= numberToEvaluate; i++)
+            {
+                if (i == 0)
+                {
+                    baumSweetSequence.Add(1);
+                    continue;
+                }
+
+                var binaryConversion = Convert.ToString(i, 2);
+                var sequenceOf0s = binaryConversion.Split(new char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
+
+                var hasOdd0Sequence = false;
+                var sequenceEvaluation = 1;
+
+                foreach (var seq in sequenceOf0s)
+                {
+                    if (seq.Length % 2 == 1)
+                    {
+                        hasOdd0Sequence = true;
+                    }
+                }
+
+                if (hasOdd0Sequence)
+                {
+                    sequenceEvaluation = 0;
+                }
+
+                baumSweetSequence.Add(sequenceEvaluation);
+            }
+
+            Approvals.VerifyAll(baumSweetSequence, "b_");
         }
     }
 }
