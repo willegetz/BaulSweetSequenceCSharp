@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
-namespace BaulSweetSequenceTests
+namespace BaumSweetSequenceTests
 {
     [TestClass]
     public class SequenceTests
@@ -33,7 +34,7 @@ namespace BaulSweetSequenceTests
             var startingValue = 2;
             var binaryConversion = Convert.ToString(startingValue, 2);
 
-            var sequencesOf0 = binaryConversion.Split(new Char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
+            var sequencesOf0 = binaryConversion.Split(new char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
             var hasOdd0Sequence = false;
 
             foreach (var seq in sequencesOf0)
@@ -45,6 +46,26 @@ namespace BaulSweetSequenceTests
             }
 
             Assert.IsTrue(hasOdd0Sequence, "The binary value does not contain any sequence of 0 with an odd count");
+        }
+
+        [TestMethod]
+        public void Number1DoesNotHaveOdd0Sequence()
+        {
+            var startingValue = 1;
+            var binaryConversion = Convert.ToString(startingValue, 2);
+
+            var sequencesOf0 = binaryConversion.Split(new char[] { '1' }, StringSplitOptions.RemoveEmptyEntries);
+            var hasOdd0Sequence = false;
+
+            foreach (var seq in sequencesOf0)
+            {
+                if (seq.Length % 2 == 1)
+                {
+                    hasOdd0Sequence = true;
+                }
+            }
+
+            Assert.IsFalse(hasOdd0Sequence, "The binary value does contain a sequence of 0 with an odd count");
         }
     }
 }

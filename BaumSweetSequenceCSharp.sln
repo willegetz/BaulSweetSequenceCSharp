@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaulSweetSequenceTests", "BaulSweetSequenceTests\BaulSweetSequenceTests.csproj", "{1B4B82B6-FA51-45F1-8D9E-1EB48A4EA09B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaumSweetSequenceTests", "BaumSweetSequenceTests\BaumSweetSequenceTests.csproj", "{1B4B82B6-FA51-45F1-8D9E-1EB48A4EA09B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
