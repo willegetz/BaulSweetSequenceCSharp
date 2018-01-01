@@ -62,22 +62,13 @@ namespace BaumSweetSequenceTests
         [TestMethod]
         public void BaumSweetSequenceFor2Is1and1and0()
         {
-            var baumSweetSequence = new List<int>() { 1 };
 
             var numberToEvaluate = 2;
-
-            for (int i = 1; i <= numberToEvaluate; i++)
-            {
-                var binaryConversion = GetBinaryValue(i);
-                var sequenceOf0s = GetBlocksOf0s(binaryConversion);
-                var sequenceEvaluation = GetBaumSweetEvaluation(sequenceOf0s);
-
-                baumSweetSequence.Add(sequenceEvaluation);
-            }
+            var baumSweetSequence = GetBaumSweetSequenceListFor(numberToEvaluate);
 
             Approvals.VerifyAll(baumSweetSequence, "b_");
         }
-        
+
         private string GetBinaryValue(int startingValue)
         {
             return Convert.ToString(startingValue, 2);
@@ -107,6 +98,21 @@ namespace BaumSweetSequenceTests
             }
 
             return baumSweetEvaluation;
+        }
+
+        private IEnumerable<int> GetBaumSweetSequenceListFor(int numberToEvaluate)
+        {
+            var baumSweetSequence = new List<int>() { 1 };
+            for (int i = 1; i <= numberToEvaluate; i++)
+            {
+                var binaryConversion = GetBinaryValue(i);
+                var sequenceOf0s = GetBlocksOf0s(binaryConversion);
+                var sequenceEvaluation = GetBaumSweetEvaluation(sequenceOf0s);
+
+                baumSweetSequence.Add(sequenceEvaluation);
+            }
+
+            return baumSweetSequence;
         }
     }
 }
