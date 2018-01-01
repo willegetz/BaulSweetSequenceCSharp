@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ApprovalTests.Reporters;
 using ApprovalTests;
 using BaumSweetSequence;
+using System.Linq;
 
 namespace BaumSweetSequenceTests
 {
@@ -68,6 +69,26 @@ namespace BaumSweetSequenceTests
             var creator = new SequenceCreation();
             var numberToEvaluate = 2;
             var baumSweetSequence = creator.GetBaumSweetSequenceListFor(numberToEvaluate);
+
+            Approvals.VerifyAll(baumSweetSequence, "b_");
+        }
+
+        [TestMethod]
+        public void SequenceFor20MatchesExample()
+        {
+            var exampleNumber20Sequence = new List<int>() { 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0 };
+
+            var creator = new SequenceCreation();
+            var numberToEvaluate = 20;
+            var baumSweetSequence = creator.GetBaumSweetSequenceListFor(20).ToList();
+
+            for (int i = 0; i < baumSweetSequence.Count; i++)
+            {
+                var expected = exampleNumber20Sequence[i];
+                var actual = baumSweetSequence[i];
+
+                Assert.AreEqual(expected, actual, $@"Failure occured on number {i}");
+            }
 
             Approvals.VerifyAll(baumSweetSequence, "b_");
         }
