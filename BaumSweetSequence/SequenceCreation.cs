@@ -12,6 +12,7 @@ namespace BaumSweetSequence
         {
             evaluator = new SequenceEvaluation();
         }
+
         public IEnumerable<int> GetBaumSweetSequenceListFor(int numberToEvaluate)
         {
             var evaluator = new SequenceEvaluation();

@@ -5,6 +5,7 @@ using ApprovalTests.Reporters;
 using ApprovalTests;
 using BaumSweetSequence;
 using System.Linq;
+using System.Text;
 
 namespace BaumSweetSequenceTests
 {
@@ -80,7 +81,7 @@ namespace BaumSweetSequenceTests
 
             var creator = new SequenceCreation();
             var numberToEvaluate = 20;
-            var baumSweetSequence = creator.GetBaumSweetSequenceListFor(20).ToList();
+            var baumSweetSequence = creator.GetBaumSweetSequenceListFor(numberToEvaluate).ToList();
 
             for (int i = 0; i < baumSweetSequence.Count; i++)
             {

@@ -24,6 +24,7 @@ namespace BaumSweetSequence
                 if (seq.Length % 2 == 1)
                 {
                     hasOdd0Sequence = true;
+                    break;
                 }
             }
 
